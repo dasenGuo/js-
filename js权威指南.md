@@ -495,6 +495,7 @@ loadasync(test.js)
 #### 3> web渲染模式有“怪异模式”和“标准模式”
 在标准模式页面按照`html`，`css`的定义渲染,而在怪异模式就是为了浏览器很早之前针对旧版本浏览器设计，并未严格遵循`W3C`标准而产生的一种页面渲染模式。浏览器基于页面中文件类型描述的存在决定采用哪种渲染模式，如果存在一个完整的`DOCTYPE`则浏览器将会采用标准模式，如果缺失就会采用怪异模式。
 通过检测`document.compatMode`属性，如果其值为`CSS1Compat`则为标准模式；如果其值为`BackCompat`则是怪异模式。
+
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png)
 
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png)
@@ -597,6 +598,7 @@ DOM以树结构表达HTML文档，如下图：
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308093956.png)
 
 关于节点树，如下图：
+
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308094007.png)
 
 #### 1> 获取节点
@@ -859,6 +861,7 @@ ipt.addEventListener("textInput",function(event){
 
 请注意：localhost 和 127.0.0.1虽然都指向本机，但也属于跨域。
 浏览器执行`javascript`脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。你可以理解为两个域名之间不能跨过域名来发送请求或者请求数据，否则就是不安全的，这种不安全也就是CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。
+
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/clip.png)
 
 #### 2> 同源策略限制以下几种行为：
