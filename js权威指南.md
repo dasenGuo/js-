@@ -24,7 +24,7 @@ a.toFixed(0);  //"123456"
 a.toFixed(2);  //"123456.11"
 ```
 
-#### 4.  toString()
+### 4. toString()
 ```javascript
 [1,3,4].toString();  //"1,3,4"
 ```
