@@ -29,14 +29,8 @@ a.toFixed(2);  //"123456.11"
 [1,3,4].toString();  //"1,3,4"
 ```
 
-### 5. instanceof
-```javascript
-var obj ={aa:22};
-obj instanceof Object;  // true;
-```
-
-### 6. in 与 instanceof 的使用
-`in`希望左操作数是一个字符串或者是可以转化为字符串的字节，右边是一个对象，如果右侧的对象拥有一个名为左操作数值的属性名，那么返回`true`；否则返回`false`；
+### 5. in 与 instanceof 的使用
+(1) `in`希望左操作数是一个字符串或者是可以转化为字符串的字节，右边是一个对象，如果右侧的对象拥有一个名为左操作数值的属性名，那么返回`true`；否则返回`false`；
 ```javascript
 var point ={x:1,y:2};
 "x" in point  //true;
@@ -45,8 +39,13 @@ var data =[7,8,9]
 "1" in data  //true  转换为1的字符串，然后下标
 "3" in data  //false 
 ```
+(2) instanceof
+```javascript
+var obj ={aa:22};
+obj instanceof Object;  // true;
+```
 
-### 7. delete
+### 6. delete
 ```javascript
 var o ={x:1,y:2};
 delete o.x;
@@ -65,7 +64,7 @@ delete x; //true
 delete this.x  //true 严格模式下需要加this
 ```
 
-### 8. for 和 for/in
+### 7. for 和 for/in
 `for`只会遍历私有的属性和方法（更多的是索引），自己在原型上扩展的方法不会遍历出来。
 `for in`不仅可以遍历当前对象（或者当前实例）所有的私有属性和方法，也会遍历对象的所有可枚举属性，还可以把原型上自己创建的公共属性和方法进行遍历。（注意一点的是：原型上的公有属性是不可枚举的）
 ```javascript
@@ -75,16 +74,16 @@ let o = {one:1,two:2,three:3};
 }
 ```
 
-### 9. break 和 continue
+### 8. break 和 continue
 `break` 直接终止循环
 `continue`跳过这一次继续下一次循环
 
-### 10. 抛错 throw
+### 9. 抛错 throw
 ```javascript
 throw new Error()
 ```
 
-### 11. try，catch，finally
+### 10. try，catch，finally
 ```javascript
 try{
 }catch(e){
@@ -92,7 +91,7 @@ try{
 }     // finally 不管语句是否抛错都会运行
 ```
 
-### 12. 数组
+### 11. 数组
 #### 1> join()
 将数组中的所有元素转化成字符串并连接在一起，默认使用逗号隔开
 ```javascript
@@ -181,7 +180,7 @@ var arr = [ 1, 2, 3, 4, 5, 6 ];
 [x,y] = [x+1,y+1]  //等价于 x=x+1,y=y+1
 ```
 
-### 13. 对象
+### 12. 对象
 #### 1> 创建对象：Object.create()
 ```javascript
 var obj = Object.create({}, {
@@ -314,7 +313,7 @@ function not(f) {
   squareofsum(2, 3) //25
 ```
 
-### 14. 正则
+### 13. 正则
 ```javascript
 /[^...]/   // 不在方括号内的任意字符
 /[a-z]/    // 匹配的是26位小写字母
@@ -339,10 +338,10 @@ function not(f) {
    /[^(]*/  // 匹配一个或多个非左括号的字符
    /ab|cd|ef/ // 分隔字符，可以匹配字符ab，或者cd，或者ef
    new RegExp("\\d{5}","g")
-RegExp最主要的执行模式匹配的方法是exec(),对一个指定的字符串执行一个正则表达式，如果在这个字符串中没有找到所匹配的的东西，返回null，找到匹配返回一个数组。
+   RegExp最主要的执行模式匹配的方法是exec(),对一个指定的字符串执行一个正则表达式，如果在这个字符串中没有找到所匹配的的东西，返回null，找到匹配返回一个数组。
 ```
 
-### 15. 迭代器
+### 14. 迭代器
 #### 1> 迭代器必须包含`next()`方法，每一次调用都会返回集合的下一个值
 ```javascript
 function counter(start){
@@ -426,7 +425,7 @@ for(x in range){
 }
 ```
 
-### 16. BOM 与 DOM
+### 15. BOM 与 DOM
 ####  window：`浏览器对象模型`
 ```javascript
 //对象属性
@@ -847,7 +846,7 @@ ipt.addEventListener("textInput",function(event){
 },false)
 ```
 
-### 17. http（超文本传输）协议
+### 16. http（超文本传输）协议
 在Web应用中，服务器把网页传给浏览器，实际上就是把网页的`HTML`代码发送给浏览器，让浏览器显示出来。而浏览器和服务器之间的传输协议是`HTTP`，所以：
 * `HTML`是一种用来定义网页的文本，会`HTML`，就可以编写网页；
 * `HTTP`是在网络上传输`HTML`的协议，用于浏览器和服务器的通信。
@@ -1079,7 +1078,7 @@ server.listen('8080');
 console.log('Server is running at port 8080...');
 ```
 
-### 18. 客户端存储
+### 17. 客户端存储
 #### 1> localStorage 和 sessionStorage
 ```javascript
 localStorage.setItem("x",1);
@@ -1228,7 +1227,7 @@ stop-opacity:1" />
 </svg>
 ```
 
-#### 20. 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
+#### 19. 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
 * navigator.geolocation.getCurrentPosition(successCallback,errorCallback,positionOptions)：获取用户当前位置
 * navigator.geolocation.watchPosition()：获取当前位置，同时不断地监视当前位置，一旦用户位置发生更改，就会调用指定的回调函数
 * navigator.geolocation.clearWatch()：停止监视用户位置，传递给此方法的参数应当是调用`watchPosition()`方法获得的返回值
@@ -1256,7 +1255,7 @@ stop-opacity:1" />
 3. 如果`getCurrentPosition()`运行成功，则向参数`showPosition`中规定的函数返回一个`coordinates`对象
 4. `showPosition()`函数获得并显示经度和纬度
 
-### 21. js中的堆和栈的简单解释（[点击查看原文](https://www.cnblogs.com/jiangk1214/p/6650957.html)）
+### 20. js中的堆和栈的简单解释（[点击查看原文](https://www.cnblogs.com/jiangk1214/p/6650957.html)）
 堆和栈都是运行时内存中分配的一个数据区，因此也被称为堆区和栈区，但二者存储的数据类型和处理速度不同。堆（`heap`）用于复杂数据类型（`引用类型`）分配空间，例如数组对象，`object`对象；他是运行时动态分配内存的，因此存取速度较慢。栈（`stack`）中主要存放一些基本类型的变量和对象的引用，其优势是存取速度比堆要快，并且栈内的数据可以共享，但缺点是存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。
 #### 1> 栈的使用规则
 栈有一个很重要的特殊性，就是存在栈中的数据可共享，例如下面的代码定义两个变量，变量的值都是数字类型。
