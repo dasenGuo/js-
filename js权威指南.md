@@ -617,6 +617,7 @@ var eg5 = document.querySelector(".box") //通过类名拿到节点
 关于详细节点的介绍及操作（见：[点击查看详情](https://wangdoc.com/javascript/dom/node.html)）
 
 DOM节点之间的关系：
+
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308094016.png)
 
 #### 3> 操作节点方法
