@@ -102,7 +102,7 @@ a.join(""); // "123"
 a.join("-"); // "1-2-3"
 ```
 
-#### 2> sort（）
+#### 2> sort()
 在原数组上进行排序，不生成副本；参数可选，但必须是函数。
 不传参数，按照字符编码顺序进行排序
 ```javascript
@@ -316,30 +316,30 @@ function not(f) {
 
 ### 14. 正则
 ```javascript
-1>/[^...]/   // 不在方括号内的任意字符
-2>/[a-z]/    // 匹配的是26位小写字母
-3>/[a-zA-Z0-9]/ // 匹配的是任意的字母和数字
-4>   .   // 除换行符和其他Unicode行终止符之外的任意字符
-5>  \w   // 任何ASCII字符组成的单词，等价于[a-zA-Z0-9]
-6>  \W   // 任何不是ASCII字符组成的单词，等价于[^a-zA-Z0-9]
-7>  \s   // 任何Unicode空白符
-8>  \S   // 任何非Unicode空白符的字符，注意\W和\S不同
-9>  \d   // 等价于[0-9]
-10> \D   // 等价于[^0-9]
-11>[\b]  // 退格直接量。
-12>{n,m} // 匹配前一项至少n次，但不能超过m次
-13>{n,}  // 匹配前一项n次或者更多次
-14>{n}   // 匹配前一项n次
-15>  ？  // 匹配前一项0次或者1次，也就是说前一项是可选的，等价于{0,1}
-16>  +   // 匹配前一项1次或多次，等价于{1，}
-17>  *   // 匹配前一项0次或多次，等价于{0，}
-18> /\d{2,4}/  // 匹配2-4个数字
-19> /\w{3}\d?/  // 精确匹配三个单词和一个可选数字
-20> /\s+java\s+/ // 匹配前后带有一个或多个空格的字符串"java"
-21> /[^(]*/  // 匹配一个或多个非左括号的字符
-22> /ab|cd|ef/ // 分隔字符，可以匹配字符ab，或者cd，或者ef
-23> new RegExp("\\d{5}","g")
-24> RegExp最主要的执行模式匹配的方法是exec(),对一个指定的字符串执行一个正则表达式，如果在这个字符串中没有找到所匹配的的东西，返回null，找到匹配返回一个数组。
+/[^...]/   // 不在方括号内的任意字符
+/[a-z]/    // 匹配的是26位小写字母
+/[a-zA-Z0-9]/ // 匹配的是任意的字母和数字
+   .   // 除换行符和其他Unicode行终止符之外的任意字符
+  \w   // 任何ASCII字符组成的单词，等价于[a-zA-Z0-9]
+  \W   // 任何不是ASCII字符组成的单词，等价于[^a-zA-Z0-9]
+  \s   // 任何Unicode空白符
+  \S   // 任何非Unicode空白符的字符，注意\W和\S不同
+  \d   // 等价于[0-9]
+  \D   // 等价于[^0-9]
+  [\b]  // 退格直接量。
+  {n,m} // 匹配前一项至少n次，但不能超过m次
+  {n,}  // 匹配前一项n次或者更多次
+  {n}   // 匹配前一项n次
+   ？  // 匹配前一项0次或者1次，也就是说前一项是可选的，等价于{0,1}
+   +   // 匹配前一项1次或多次，等价于{1，}
+   *   // 匹配前一项0次或多次，等价于{0，}
+   /\d{2,4}/  // 匹配2-4个数字
+   /\w{3}\d?/  // 精确匹配三个单词和一个可选数字
+   /\s+java\s+/ // 匹配前后带有一个或多个空格的字符串"java"
+   /[^(]*/  // 匹配一个或多个非左括号的字符
+   /ab|cd|ef/ // 分隔字符，可以匹配字符ab，或者cd，或者ef
+   new RegExp("\\d{5}","g")
+RegExp最主要的执行模式匹配的方法是exec(),对一个指定的字符串执行一个正则表达式，如果在这个字符串中没有找到所匹配的的东西，返回null，找到匹配返回一个数组。
 ```
 
 ### 15. 迭代器
@@ -448,32 +448,35 @@ window.close()  //关闭窗口
 //成员对象
 window.event
 window.document
+
 window.history
-     window.history.length  //浏览过的页面数
-     window.history.back()  //后退
-     window.history.forward()  //前进
-     window.history.go(i)  //前进或后退i个页面（i>0前进，i<0后退）     
+window.history.length  //浏览过的页面数
+window.history.back()  //后退
+window.history.forward()  //前进
+window.history.go(i)  //前进或后退i个页面（i>0前进，i<0后退） 
+
 window.screen
-     window.screen.width  //屏幕宽度
-     window.screen.height  //屏幕高度
-     window.screen.colorDepth  //屏幕色深
-     window.screen.availWidth  //屏幕可用宽度
-     window.screen.availHeight  //屏幕可用高度（除去任务栏的高度）  
+window.screen.width  //屏幕宽度
+window.screen.height  //屏幕高度
+window.screen.colorDepth  //屏幕色深
+window.screen.availWidth  //屏幕可用宽度
+window.screen.availHeight  //屏幕可用高度（除去任务栏的高度）  
+
 window.navigator   
-     window.navigator.appCodeName  //浏览器代码名
-     window.navigator.appName  //浏览器名
-     window.navigator.platform  //运行浏览器的操作系统平台
-     window.navigator.appVersion  //浏览器的平台和版本
-     window.navigator.userAgent  //由客户机发送服务器的user-agent 头部的值
-     window.navigator.cookieEnabled  //浏览器是否启用cookie
-     window.navigator.appMinorVersion  //浏览器补丁版本
-     window.navigator.cpuClass  //cpu类型
-     window.navigator.plugins  //插件标识
-     window.navigator.userProfile  //用户的个人信息
-     window.navigator.systemLanguage  //客户体系语言
-     window.navigator.userLanguage  //用户语言
-     window.navigator.onLine  //用户是否在线
-     window.navigator.mimeTypes  //MIME类型（数组）
+window.navigator.appCodeName  //浏览器代码名
+window.navigator.appName  //浏览器名
+window.navigator.platform  //运行浏览器的操作系统平台
+window.navigator.appVersion  //浏览器的平台和版本
+window.navigator.userAgent  //由客户机发送服务器的user-agent 头部的值
+window.navigator.cookieEnabled  //浏览器是否启用cookie
+window.navigator.appMinorVersion  //浏览器补丁版本
+window.navigator.cpuClass  //cpu类型
+window.navigator.plugins  //插件标识
+window.navigator.userProfile  //用户的个人信息
+window.navigator.systemLanguage  //客户体系语言
+window.navigator.userLanguage  //用户语言
+window.navigator.onLine  //用户是否在线
+window.navigator.mimeTypes  //MIME类型（数组）
 ```
 
 #### 1> 异步载入并执行脚本`loadasync()`
