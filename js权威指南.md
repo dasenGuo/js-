@@ -504,9 +504,9 @@ loadasync(test.js)
 ![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png)
 
 #### 4> 同源策略
-(1) 同源策略是对`js`代码能够操作哪些`web`内容的一条完整的安全限制。
-(2) 脚本本身的来源和同源策略并不相关，相关的是脚本所嵌入的文档的来源。
-(3) 不严格的同源策略
+##### (1) 同源策略是对`js`代码能够操作哪些`web`内容的一条完整的安全限制。
+##### (2) 脚本本身的来源和同源策略并不相关，相关的是脚本所嵌入的文档的来源。
+##### (3) 不严格的同源策略
 * 多子域的大站点，使用`document`对象的`domain`属性，默认情况下属性`domain`存放的是载入文档的服务器的主机名。将两个窗体的`domain`设置成相同的值，即可相互读取对方的属性。
 * 跨域资源共享：使用新的`Origin`请求头和新的`Access-Control-Allow-Origin`响应头来扩展`HTTP`。
 * 跨文档信息：调用`window`对象上的`postMessage()`方法，异步传递消息事件。
@@ -660,16 +660,16 @@ n.parentNode.replaceChild(document.createTextNode("Water"),n);
 ```javascript
 var cloneUL = document.querySelector('ul').cloneNode(true);
 ```
-a.  克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
-b.  该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
-c.  克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
+###### a.  克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
+###### b.  该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
+###### c.  克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
 
 ##### (5) 特殊的 “缓冲” 节点
 `DocumentFragment`对象
-a.  一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
-b.  `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
-c.  当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
-d.  重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
+###### a.  一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
+###### b.  `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
+###### c.  当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
+###### d.  重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
 创建该对象：
 ```javascript
 var fragment = document.createDocumentFragment();
@@ -687,7 +687,7 @@ document.body.appendChild(fragment);
 
 > `延伸`：节点都是单个对象，有时需要一种数据结构，能够容纳多个节点，DOM提供两种节点集合，用于容纳多个节点：`NodeList`和`HTMLCollection`。而这差别是前者可以包含各种类型的节点，后者只能包含HTML元素节点。
 
-(1) NodeList
+##### (1) NodeList
 `NodeList`实例是一个类似数组的对象，他的成员是节点对象。通过以下方法可以得到`NodeList`实例：
 * Node.childNodes
 * document.querySelectorAll()等节点搜索方法
@@ -705,7 +705,7 @@ document.body.childNodes.item(0);  //item(0)返回第一个成员
 ```
 注意，`NodeList`实例可能是动态集合，也可能是静态集合。所谓动态集合就是一个活的集合，DOM删除或者新增一个相关节点，都会立刻反映在`NodeList`实例上。目前只有`Node.childNodes`返回的是一个动态集合，其他的`NodeList`都是静态集合。
 
-(2) HTMLCollection
+##### (2) HTMLCollection
 `HTMLCollection`是一个节点对象的集合，只能包含元素节点（`element`），不能包含其他类型的节点。他的返回值是一个类似数组的对象，但是与`NodeList`接口不同，`HTMLCollection`没有`forEach`方法，只能使用`for`循环遍历。返回`HTMLCollection`实例的，主要是一些`Document`对象的集合属性。比如`document.links`，`document.forms`，`document.images`等。`HTMLCollection`实例都是动态集合，节点的变化会实时反映在集合中。
 ```html
 <img id="pic" src="http://pic1.nipic.com/2008-08-14/2008814183939909_2.jpg">
@@ -742,17 +742,17 @@ var pic = document.images.namedItem('pic');
 * `changedTouches`：涉及当前（引发）事件的触摸点的列表
 
 通过一个例子来区分一下触摸事件中的这三个属性：
-① 用一个手指触摸屏幕，触发事件，此时这三个属性有相同的值。
-② 用第二个手指接触屏幕，此时`touches`有两个元素，每个手指触摸点为一个值。当两个手指触摸相同元素时，`targetTouches`和`touches`的值相同，否则`targetTouches`只有一个值。`changedTouches`此时只有一个值，为第二个手指的触摸点，因为第二个手指是引发事件的原因。
-③ 用两个手指同时接触屏幕，此时`changedTouches`有两个值，每一个手指的触摸点都有一个值。
-④ 手指滑动时，三个值都会发生变化。
-⑤ 一个手指离开屏幕，`touches`和`targetTouches`中对应的元素会同时移除，而`changedTouches`仍然会存在元素。
-⑥ 手指都离开屏幕之后，`touches`和`targetTouches`中将不会再有值，`changedTouches`还会有一个值，此值为最后一个离开屏幕的手指的接触点。
+###### a. 用一个手指触摸屏幕，触发事件，此时这三个属性有相同的值。
+###### b. 用第二个手指接触屏幕，此时`touches`有两个元素，每个手指触摸点为一个值。当两个手指触摸相同元素时，`targetTouches`和`touches`的值相同，否则`targetTouches`只有一个值。`changedTouches`此时只有一个值，为第二个手指的触摸点，因为第二个手指是引发事件的原因。
+###### c. 用两个手指同时接触屏幕，此时`changedTouches`有两个值，每一个手指的触摸点都有一个值。
+###### d. 手指滑动时，三个值都会发生变化。
+###### e. 一个手指离开屏幕，`touches`和`targetTouches`中对应的元素会同时移除，而`changedTouches`仍然会存在元素。
+###### f. 手指都离开屏幕之后，`touches`和`targetTouches`中将不会再有值，`changedTouches`还会有一个值，此值为最后一个离开屏幕的手指的接触点。
 
 注：关于两指操作，Apple中`Safari`自带有缩放和旋转手势。参数是`gesturestart`开始，`gestureend`结束，这两个事件之间是跟踪手势过程的`gesturechange`事件队列。这些事件传递的事件对象有数字属性`scale`和`rotation`。`scale`属性是两个手指之间间距的变化情况。“捏紧”手势的`scale`值小于1.0，而“撑开”手势的`scale`值大于1.0。`rotation`属性是指手指变化引起的旋转角度，他以度为单位，正值表示按照顺时针方向旋转（该值从0开始）。
 
 ##### (4) 注册事件处理程序
-a.  addEventListener()
+###### a.  addEventListener()
 ```javascript
 element.addEventListener(event,function,boolean)
 ```
@@ -765,19 +765,19 @@ function onclickFn(event){
 	event.stopPropagation();
 }
 ```
-b.  removeEventListener()
+##### b.  removeEventListener()
 ```javascript
 document.removeEventListener("mousemove",handleMouseMove,true);
 document.removeEventListener("mouseup",handleMouseUp,true);
 ```
 
 ##### (5) 拖放事件`drag()`
-a.  在拖动目标上触发事件（源元素）：
+###### a.  在拖动目标上触发事件（源元素）：
 * `draggable`：是否可以拖动
 * `ondragstart`：用户开始拖动元素时触发
 * `ondrag`：元素正在拖动时触发
 * `ondragend`：用户完成元素拖动后触发
-b.  释放目标时触发的事件：
+###### b.  释放目标时触发的事件：
 * `ondragenter`：当被鼠标拖动的对象进入其容器范围内时触发此事件
 * `ondragover`：当某被拖动的对象在另一对象容器范围内拖动时触发此事件
 * `ondragleave`：当被鼠标拖动的对象离开其容器范围内时触发此事件
@@ -818,9 +818,9 @@ function dragStart(event){
   }
 ```
 注：
-① `setData(format,data)`：将指定格式的数据赋值给`dataTransfer`对象，参数`format`定义数据的格式也就是数据的类型（传递的一个标志，须与`getData`一致），`data`为待赋值的数据。
-② `setData(format)`：从`dataTransfer`对象中获取指定格式的数据，`format`代表数据格式（须与`setData`一致），`data`为数据。
-③ `dataTransfer`：可以为每一种`MIME`类型都保存一个值，不过保存在`dataTransfer`对象中的数据只能在`drop`事件程序中读取，如果没有读到，那么就是`dataTransfer`对象被销毁了，数据也丢失了。
+###### a. `setData(format,data)`：将指定格式的数据赋值给`dataTransfer`对象，参数`format`定义数据的格式也就是数据的类型（传递的一个标志，须与`getData`一致），`data`为待赋值的数据。
+###### b. `setData(format)`：从`dataTransfer`对象中获取指定格式的数据，`format`代表数据格式（须与`setData`一致），`data`为数据。
+###### c. `dataTransfer`：可以为每一种`MIME`类型都保存一个值，不过保存在`dataTransfer`对象中的数据只能在`drop`事件程序中读取，如果没有读到，那么就是`dataTransfer`对象被销毁了，数据也丢失了。
 
 ##### (6) 文本事件与鼠标滚轮事件
 拿到当前所输入的东西`textInput`与鼠标滚轮事件`wheel`
@@ -914,20 +914,20 @@ ipt.addEventListener("textInput",function(event){
 * `readyState`属性存在`XMLHttpRequest`的状态信息
 
 下面是`XMLHttpRequest`对象的三个重要的属性：
-(1) onreadystatechange：存储函数（或函数名），每当`readyState`属性改变时，就会调用该函数。
-(2) readyState：存有`XMLHttpRequest`的状态。从0到4发生变化。
+##### (1) onreadystatechange：存储函数（或函数名），每当`readyState`属性改变时，就会调用该函数。
+##### (2) readyState：存有`XMLHttpRequest`的状态。从0到4发生变化。
 * 0：请求未初始化
 * 1：服务器连接已建立
 * 2：请求已接收
 * 3：请求处理中
 * 4：请求已完成，且响应已就绪
 
-(3) `status`
+##### (3) `status`
 * 200：“OK”
 * 404：未找到页面
 
 ##### 前端设置
-(1) 原生 ajax
+###### a. 原生 ajax
 ```javascript
 var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
 // 前端设置是否带cookie
@@ -943,7 +943,7 @@ xhr.onreadystatechange = function(){
   }
 }
 ```
-(2) jQuery ajax
+###### b. jQuery ajax
 ```javascript
 $.ajax({
   ...
@@ -954,7 +954,7 @@ $.ajax({
   ...
 })
 ```
-(3) vue框架
+###### c. vue框架
 ① axios设置：
 ```javascript
 axios.defaults.withCredentials = true
@@ -965,7 +965,7 @@ Vue.http.options.credentials = true
 ```
 ##### 服务端设置
 若后端设置成功，前端浏览器控制台则不会出现跨域报错信息，反之，说明没设成功。	
-(1) Java后台：
+###### a. Java后台：
 ```java
 /*
 * 导入包：import javax.servlet.http.HttpServletResponse;
@@ -981,7 +981,7 @@ response.setHeader("Access-Control-Allow-Creadentials","true");
 //提示OPTIONS预检时，后端需要设置的两个常用自定义头
 response.setHeader("Access-Control-Allow-Headers","Content-Type,X-Rrquested-With");
 ```
-(2) Node.js后台示例：
+###### b. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
@@ -1021,14 +1021,14 @@ console.log('Server is running at port 8080...');
 
 ##### 方案三
 `nginx`代理跨域：
-1> `nginx`配置解决`iconfont`跨域
+##### (1) `nginx`配置解决`iconfont`跨域
 浏览器跨域访问`js`，`css`，`img`等常规静态资源被同源策略许可，但`iconfont`字体文件（`eot`|`otf`|`ttf`|`woff`|`svg`）例外，此时可在`nginx`的静态资源服务器中加入以下配置：
 ```javascript
 location /{
    add_header Access-Control-Allow-Origin *;
 }
 ```
-2> `nginx`反向代理接口跨域
+##### (2) `nginx`反向代理接口跨域
 跨域原理：同源策略是浏览器的安全策略，不是HTTP协议的一部分。服务器端调用HTTP接口知识使用HTTP协议，不会执行js脚本，不需要同源策略，也就不存在跨域问题。
 实现思路：通过`nginx`配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问`damain2`接口，并且可以顺便修改`cookie`中`domain`信息，方便当前域`cookie`写入，实现跨域登录。
 `nginx`具体配置：
@@ -1049,7 +1049,7 @@ server {
     }
 }
 ```
-(1) 前端代码示例：
+###### a. 前端代码示例：
 ```javascript
 var xhr = new XMLHttpRequest();
 //浏览器是否读写cookie
@@ -1058,7 +1058,7 @@ xhr.withCredentials = true;
 xhr.open('get','http://www.domain1.com:81/?user=admin',true);
 xhr.send();
 ```
-(2) Node.js后台示例：
+###### b. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
@@ -1203,10 +1203,10 @@ style="fill:url(#orange_red)"/>
 
 </svg>
 ```
-(1) `<linearGradient>`标签的`id`属性可为渐变定义一个唯一的名称
-(2) `fill:url(#orange_red)` 属性把`ellipse`元素连接到此渐变
-(3) `<linearGradient>`标签的`x1`，`x2`，`y1`，`y2`属性可定义渐变的开始和结束位置
-(4) 渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个`<stop>`标签来规定。`offset`属性用来定义渐变的开始和结束位置。
+##### (1) `<linearGradient>`标签的`id`属性可为渐变定义一个唯一的名称
+##### (2) `fill:url(#orange_red)` 属性把`ellipse`元素连接到此渐变
+##### (3) `<linearGradient>`标签的`x1`，`x2`，`y1`，`y2`属性可定义渐变的开始和结束位置
+##### (4) 渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个`<stop>`标签来规定。`offset`属性用来定义渐变的开始和结束位置。
 
 #### 9> 放射渐变
 ```html
