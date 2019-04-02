@@ -661,16 +661,16 @@ n.parentNode.replaceChild(document.createTextNode("Water"),n);
 ```javascript
 var cloneUL = document.querySelector('ul').cloneNode(true);
 ```
-1. 克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
-2. 该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
-3. 克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
+* 克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
+* 该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
+* 克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
 
 ##### (5) 特殊的 “缓冲” 节点
 `DocumentFragment`对象
-1. 一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
-2. `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
-3. 当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
-4. 重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
+* 一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
+* `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
+* 当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
+* 重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
 创建该对象：
 ```javascript
 var fragment = document.createDocumentFragment();
