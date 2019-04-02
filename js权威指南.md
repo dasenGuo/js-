@@ -626,8 +626,8 @@ var textnode = document.createTextNode("Water") //text节点创建
 ```
 
 ##### (2) 插入节点
-`appendChild()`：插入指定节点的最后一个子节点
-`insertBefore()`：接收两个参数，第一个参数是待插入的节点，第二个参数是已存在的节点，新节点将插入该节点的前面。该方法应该是在新节点的父节点上调用，方法的第二个参数必须是该父节点的子节点。如果传递`null`作为第二个参数，`insertBefore()`的行为类似`appendChild()`，他将节点插入在最后。
+1. `appendChild()`：插入指定节点的最后一个子节点
+2. `insertBefore()`：接收两个参数，第一个参数是待插入的节点，第二个参数是已存在的节点，新节点将插入该节点的前面。该方法应该是在新节点的父节点上调用，方法的第二个参数必须是该父节点的子节点。如果传递`null`作为第二个参数，`insertBefore()`的行为类似`appendChild()`，他将节点插入在最后。
 ```html
 <ul id="myList">
 <li>Coffee</li>
@@ -660,16 +660,16 @@ n.parentNode.replaceChild(document.createTextNode("Water"),n);
 ```javascript
 var cloneUL = document.querySelector('ul').cloneNode(true);
 ```
-###### a.  克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
-###### b.  该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
-###### c.  克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
+\1. 克隆一个节点，会拷贝该节点的所有属性，但会丧失`addEventListener`方法和`on`属性，添加在这个节点上的时间回调函数。
+\2. 该方法返回的节点不在文档之中，既没有任何父节点，必须使用诸如`Node.appendChild`这样的方法添加到文档之中。
+\3. 克隆一个节点之后，DOM有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
 
 ##### (5) 特殊的 “缓冲” 节点
 `DocumentFragment`对象
-###### a.  一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
-###### b.  `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
-###### c.  当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
-###### d.  重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
+\1.  一般动态创建`html`元素都是创建好了直接`appendChild()`上去，但是如果要添加大量的元素还用这个方法的话就会导致大量的重绘以及回流，所以需要一个 “缓冲区” 来保存创建的节点，然后再一次性添加到父节点中。这时候`DocumentFragment`对象就派上用场了。
+\2.  `DocumentFragment`节点不属于文档树，继承的`parentNode`属性总是`null`。
+\3.  当请求把一个`DocumentFragment`节点插入文档树时，插入的不是`DocumentFragment`自身，而是他的所有子孙节点。这使得`DocumentFragment`成了有用的占位符，暂时存放那些一次插入文档的节点。他还有利于实现文档的剪切，复制和粘贴操作。
+\4.  重点就在于`DocumentFragment`节点不属于文档树。因此当把创建的节点添加到该对象时，并不会导致页面的回流，因此性能就自然上去了。
 创建该对象：
 ```javascript
 var fragment = document.createDocumentFragment();
