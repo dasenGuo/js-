@@ -1226,7 +1226,7 @@ stop-opacity:1" />
 </svg>
 ```
 
-### 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
+#### 20. 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
 * navigator.geolocation.getCurrentPosition(successCallback,errorCallback,positionOptions)：获取用户当前位置
 * navigator.geolocation.watchPosition()：获取当前位置，同时不断地监视当前位置，一旦用户位置发生更改，就会调用指定的回调函数
 * navigator.geolocation.clearWatch()：停止监视用户位置，传递给此方法的参数应当是调用`watchPosition()`方法获得的返回值
@@ -1249,10 +1249,10 @@ stop-opacity:1" />
       x.innerHTML = "Latitude:" + position.coords.latitude + "<br />Longitude:" + position.coords.longitude;
     }
 ```
-(1) 检测是否支持地理定位
-(2) 如果支持，则运行`getCurrentPosition()`方法。如果不支持，则向用户显示一段消息。
-(3) 如果`getCurrentPosition()`运行成功，则向参数`showPosition`中规定的函数返回一个`coordinates`对象
-(4) `showPosition()`函数获得并显示经度和纬度
+##### (1) 检测是否支持地理定位
+##### (2) 如果支持，则运行`getCurrentPosition()`方法。如果不支持，则向用户显示一段消息。
+##### (3) 如果`getCurrentPosition()`运行成功，则向参数`showPosition`中规定的函数返回一个`coordinates`对象
+##### (4) `showPosition()`函数获得并显示经度和纬度
 
 ### 21. js中的堆和栈的简单解释（[点击查看原文](https://www.cnblogs.com/jiangk1214/p/6650957.html)）
 堆和栈都是运行时内存中分配的一个数据区，因此也被称为堆区和栈区，但二者存储的数据类型和处理速度不同。堆（`heap`）用于复杂数据类型（`引用类型`）分配空间，例如数组对象，`object`对象；他是运行时动态分配内存的，因此存取速度较慢。栈（`stack`）中主要存放一些基本类型的变量和对象的引用，其优势是存取速度比堆要快，并且栈内的数据可以共享，但缺点是存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。
