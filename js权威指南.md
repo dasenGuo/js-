@@ -1227,7 +1227,7 @@ stop-opacity:1" />
 </svg>
 ```
 
-#### 19. 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
+### 19. 获取地理位置（[点击查看原文](http://www.w3school.com.cn/html5/html_5_geolocation.asp)）
 * navigator.geolocation.getCurrentPosition(successCallback,errorCallback,positionOptions)：获取用户当前位置
 * navigator.geolocation.watchPosition()：获取当前位置，同时不断地监视当前位置，一旦用户位置发生更改，就会调用指定的回调函数
 * navigator.geolocation.clearWatch()：停止监视用户位置，传递给此方法的参数应当是调用`watchPosition()`方法获得的返回值
