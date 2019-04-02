@@ -752,7 +752,7 @@ var pic = document.images.namedItem('pic');
 注：关于两指操作，Apple中`Safari`自带有缩放和旋转手势。参数是`gesturestart`开始，`gestureend`结束，这两个事件之间是跟踪手势过程的`gesturechange`事件队列。这些事件传递的事件对象有数字属性`scale`和`rotation`。`scale`属性是两个手指之间间距的变化情况。“捏紧”手势的`scale`值小于1.0，而“撑开”手势的`scale`值大于1.0。`rotation`属性是指手指变化引起的旋转角度，他以度为单位，正值表示按照顺时针方向旋转（该值从0开始）。
 
 ##### (4) 注册事件处理程序
-a.  addEventListener()
+1. addEventListener()
 ```javascript
 element.addEventListener(event,function,boolean)
 ```
@@ -765,19 +765,19 @@ function onclickFn(event){
 	event.stopPropagation();
 }
 ```
-b.  removeEventListener()
+2. removeEventListener()
 ```javascript
 document.removeEventListener("mousemove",handleMouseMove,true);
 document.removeEventListener("mouseup",handleMouseUp,true);
 ```
 
 ##### (5) 拖放事件`drag()`
-a.  在拖动目标上触发事件（源元素）：
+1. 在拖动目标上触发事件（源元素）：
 * `draggable`：是否可以拖动
 * `ondragstart`：用户开始拖动元素时触发
 * `ondrag`：元素正在拖动时触发
 * `ondragend`：用户完成元素拖动后触发
-b.  释放目标时触发的事件：
+2. 释放目标时触发的事件：
 * `ondragenter`：当被鼠标拖动的对象进入其容器范围内时触发此事件
 * `ondragover`：当某被拖动的对象在另一对象容器范围内拖动时触发此事件
 * `ondragleave`：当被鼠标拖动的对象离开其容器范围内时触发此事件
@@ -927,7 +927,7 @@ ipt.addEventListener("textInput",function(event){
 * 404：未找到页面
 
 ##### 前端设置
-a. 原生 ajax
+1. 原生 ajax
 ```javascript
 var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
 // 前端设置是否带cookie
@@ -943,7 +943,7 @@ xhr.onreadystatechange = function(){
   }
 }
 ```
-b. jQuery ajax
+2. jQuery ajax
 ```javascript
 $.ajax({
   ...
@@ -954,7 +954,7 @@ $.ajax({
   ...
 })
 ```
-c. vue框架
+3. vue框架
 ① axios设置：
 ```javascript
 axios.defaults.withCredentials = true
@@ -965,7 +965,7 @@ Vue.http.options.credentials = true
 ```
 ##### 服务端设置
 若后端设置成功，前端浏览器控制台则不会出现跨域报错信息，反之，说明没设成功。	
-a. Java后台：
+1. Java后台：
 ```java
 /*
 * 导入包：import javax.servlet.http.HttpServletResponse;
@@ -981,7 +981,7 @@ response.setHeader("Access-Control-Allow-Creadentials","true");
 //提示OPTIONS预检时，后端需要设置的两个常用自定义头
 response.setHeader("Access-Control-Allow-Headers","Content-Type,X-Rrquested-With");
 ```
-b. Node.js后台示例：
+2. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
@@ -1049,7 +1049,7 @@ server {
     }
 }
 ```
-a. 前端代码示例：
+1. 前端代码示例：
 ```javascript
 var xhr = new XMLHttpRequest();
 //浏览器是否读写cookie
@@ -1058,7 +1058,7 @@ xhr.withCredentials = true;
 xhr.open('get','http://www.domain1.com:81/?user=admin',true);
 xhr.send();
 ```
-b. Node.js后台示例：
+2. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
