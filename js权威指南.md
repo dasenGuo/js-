@@ -30,7 +30,7 @@ a.toFixed(2);  //"123456.11"
 ```
 
 ### 5. in 与 instanceof 的使用
-(1) `in`希望左操作数是一个字符串或者是可以转化为字符串的字节，右边是一个对象，如果右侧的对象拥有一个名为左操作数值的属性名，那么返回`true`；否则返回`false`；
+1> `in`希望左操作数是一个字符串或者是可以转化为字符串的字节，右边是一个对象，如果右侧的对象拥有一个名为左操作数值的属性名，那么返回`true`；否则返回`false`；
 ```javascript
 var point ={x:1,y:2};
 "x" in point  //true;
@@ -39,7 +39,7 @@ var data =[7,8,9]
 "1" in data  //true  转换为1的字符串，然后下标
 "3" in data  //false 
 ```
-(2) instanceof
+2> instanceof
 ```javascript
 var obj ={aa:22};
 obj instanceof Object;  // true;
