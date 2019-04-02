@@ -742,17 +742,17 @@ var pic = document.images.namedItem('pic');
 * `changedTouches`：涉及当前（引发）事件的触摸点的列表
 
 通过一个例子来区分一下触摸事件中的这三个属性：
-###### a. 用一个手指触摸屏幕，触发事件，此时这三个属性有相同的值。
-###### b. 用第二个手指接触屏幕，此时`touches`有两个元素，每个手指触摸点为一个值。当两个手指触摸相同元素时，`targetTouches`和`touches`的值相同，否则`targetTouches`只有一个值。`changedTouches`此时只有一个值，为第二个手指的触摸点，因为第二个手指是引发事件的原因。
-###### c. 用两个手指同时接触屏幕，此时`changedTouches`有两个值，每一个手指的触摸点都有一个值。
-###### d. 手指滑动时，三个值都会发生变化。
-###### e. 一个手指离开屏幕，`touches`和`targetTouches`中对应的元素会同时移除，而`changedTouches`仍然会存在元素。
-###### f. 手指都离开屏幕之后，`touches`和`targetTouches`中将不会再有值，`changedTouches`还会有一个值，此值为最后一个离开屏幕的手指的接触点。
+* 用一个手指触摸屏幕，触发事件，此时这三个属性有相同的值。
+* 用第二个手指接触屏幕，此时`touches`有两个元素，每个手指触摸点为一个值。当两个手指触摸相同元素时，`targetTouches`和`touches`的值相同，否则`targetTouches`只有一个值。`changedTouches`此时只有一个值，为第二个手指的触摸点，因为第二个手指是引发事件的原因。
+* 用两个手指同时接触屏幕，此时`changedTouches`有两个值，每一个手指的触摸点都有一个值。
+* 手指滑动时，三个值都会发生变化。
+* 一个手指离开屏幕，`touches`和`targetTouches`中对应的元素会同时移除，而`changedTouches`仍然会存在元素。
+* 手指都离开屏幕之后，`touches`和`targetTouches`中将不会再有值，`changedTouches`还会有一个值，此值为最后一个离开屏幕的手指的接触点。
 
 注：关于两指操作，Apple中`Safari`自带有缩放和旋转手势。参数是`gesturestart`开始，`gestureend`结束，这两个事件之间是跟踪手势过程的`gesturechange`事件队列。这些事件传递的事件对象有数字属性`scale`和`rotation`。`scale`属性是两个手指之间间距的变化情况。“捏紧”手势的`scale`值小于1.0，而“撑开”手势的`scale`值大于1.0。`rotation`属性是指手指变化引起的旋转角度，他以度为单位，正值表示按照顺时针方向旋转（该值从0开始）。
 
 ##### (4) 注册事件处理程序
-###### a.  addEventListener()
+a.  addEventListener()
 ```javascript
 element.addEventListener(event,function,boolean)
 ```
@@ -765,19 +765,19 @@ function onclickFn(event){
 	event.stopPropagation();
 }
 ```
-##### b.  removeEventListener()
+b.  removeEventListener()
 ```javascript
 document.removeEventListener("mousemove",handleMouseMove,true);
 document.removeEventListener("mouseup",handleMouseUp,true);
 ```
 
 ##### (5) 拖放事件`drag()`
-###### a.  在拖动目标上触发事件（源元素）：
+a.  在拖动目标上触发事件（源元素）：
 * `draggable`：是否可以拖动
 * `ondragstart`：用户开始拖动元素时触发
 * `ondrag`：元素正在拖动时触发
 * `ondragend`：用户完成元素拖动后触发
-###### b.  释放目标时触发的事件：
+b.  释放目标时触发的事件：
 * `ondragenter`：当被鼠标拖动的对象进入其容器范围内时触发此事件
 * `ondragover`：当某被拖动的对象在另一对象容器范围内拖动时触发此事件
 * `ondragleave`：当被鼠标拖动的对象离开其容器范围内时触发此事件
@@ -818,9 +818,9 @@ function dragStart(event){
   }
 ```
 注：
-###### a. `setData(format,data)`：将指定格式的数据赋值给`dataTransfer`对象，参数`format`定义数据的格式也就是数据的类型（传递的一个标志，须与`getData`一致），`data`为待赋值的数据。
-###### b. `setData(format)`：从`dataTransfer`对象中获取指定格式的数据，`format`代表数据格式（须与`setData`一致），`data`为数据。
-###### c. `dataTransfer`：可以为每一种`MIME`类型都保存一个值，不过保存在`dataTransfer`对象中的数据只能在`drop`事件程序中读取，如果没有读到，那么就是`dataTransfer`对象被销毁了，数据也丢失了。
+    `setData(format,data)`：将指定格式的数据赋值给`dataTransfer`对象，参数`format`定义数据的格式也就是数据的类型（传递的一个标志，须与`getData`一致），`data`为待赋值的数据。
+    `setData(format)`：从`dataTransfer`对象中获取指定格式的数据，`format`代表数据格式（须与`setData`一致），`data`为数据。
+    `dataTransfer`：可以为每一种`MIME`类型都保存一个值，不过保存在`dataTransfer`对象中的数据只能在`drop`事件程序中读取，如果没有读到，那么就是`dataTransfer`对象被销毁了，数据也丢失了。
 
 ##### (6) 文本事件与鼠标滚轮事件
 拿到当前所输入的东西`textInput`与鼠标滚轮事件`wheel`
@@ -927,7 +927,7 @@ ipt.addEventListener("textInput",function(event){
 * 404：未找到页面
 
 ##### 前端设置
-###### a. 原生 ajax
+a. 原生 ajax
 ```javascript
 var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
 // 前端设置是否带cookie
@@ -943,7 +943,7 @@ xhr.onreadystatechange = function(){
   }
 }
 ```
-###### b. jQuery ajax
+b. jQuery ajax
 ```javascript
 $.ajax({
   ...
@@ -954,7 +954,7 @@ $.ajax({
   ...
 })
 ```
-###### c. vue框架
+c. vue框架
 ① axios设置：
 ```javascript
 axios.defaults.withCredentials = true
@@ -965,7 +965,7 @@ Vue.http.options.credentials = true
 ```
 ##### 服务端设置
 若后端设置成功，前端浏览器控制台则不会出现跨域报错信息，反之，说明没设成功。	
-###### a. Java后台：
+a. Java后台：
 ```java
 /*
 * 导入包：import javax.servlet.http.HttpServletResponse;
@@ -981,7 +981,7 @@ response.setHeader("Access-Control-Allow-Creadentials","true");
 //提示OPTIONS预检时，后端需要设置的两个常用自定义头
 response.setHeader("Access-Control-Allow-Headers","Content-Type,X-Rrquested-With");
 ```
-###### b. Node.js后台示例：
+b. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
@@ -1049,7 +1049,7 @@ server {
     }
 }
 ```
-###### a. 前端代码示例：
+a. 前端代码示例：
 ```javascript
 var xhr = new XMLHttpRequest();
 //浏览器是否读写cookie
@@ -1058,7 +1058,7 @@ xhr.withCredentials = true;
 xhr.open('get','http://www.domain1.com:81/?user=admin',true);
 xhr.send();
 ```
-###### b. Node.js后台示例：
+b. Node.js后台示例：
 ```javascript
 var http = require('http');
 var server = http.createServer();
