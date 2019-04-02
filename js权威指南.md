@@ -955,11 +955,11 @@ $.ajax({
 })
 ```
 3. vue框架
-① axios设置：
+* axios设置：
 ```javascript
 axios.defaults.withCredentials = true
 ```
-② vue-resource设置：
+* vue-resource设置：
 ```javascript
 Vue.http.options.credentials = true
 ```
@@ -1203,10 +1203,10 @@ style="fill:url(#orange_red)"/>
 
 </svg>
 ```
-##### (1) `<linearGradient>`标签的`id`属性可为渐变定义一个唯一的名称
-##### (2) `fill:url(#orange_red)` 属性把`ellipse`元素连接到此渐变
-##### (3) `<linearGradient>`标签的`x1`，`x2`，`y1`，`y2`属性可定义渐变的开始和结束位置
-##### (4) 渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个`<stop>`标签来规定。`offset`属性用来定义渐变的开始和结束位置。
+1. `<linearGradient>`标签的`id`属性可为渐变定义一个唯一的名称
+2. `fill:url(#orange_red)` 属性把`ellipse`元素连接到此渐变
+3. `<linearGradient>`标签的`x1`，`x2`，`y1`，`y2`属性可定义渐变的开始和结束位置
+4. 渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个`<stop>`标签来规定。`offset`属性用来定义渐变的开始和结束位置。
 
 #### 9> 放射渐变
 ```html
@@ -1249,10 +1249,10 @@ stop-opacity:1" />
       x.innerHTML = "Latitude:" + position.coords.latitude + "<br />Longitude:" + position.coords.longitude;
     }
 ```
-##### (1) 检测是否支持地理定位
-##### (2) 如果支持，则运行`getCurrentPosition()`方法。如果不支持，则向用户显示一段消息。
-##### (3) 如果`getCurrentPosition()`运行成功，则向参数`showPosition`中规定的函数返回一个`coordinates`对象
-##### (4) `showPosition()`函数获得并显示经度和纬度
+1. 检测是否支持地理定位
+2. 如果支持，则运行`getCurrentPosition()`方法。如果不支持，则向用户显示一段消息。
+3. 如果`getCurrentPosition()`运行成功，则向参数`showPosition`中规定的函数返回一个`coordinates`对象
+4. `showPosition()`函数获得并显示经度和纬度
 
 ### 21. js中的堆和栈的简单解释（[点击查看原文](https://www.cnblogs.com/jiangk1214/p/6650957.html)）
 堆和栈都是运行时内存中分配的一个数据区，因此也被称为堆区和栈区，但二者存储的数据类型和处理速度不同。堆（`heap`）用于复杂数据类型（`引用类型`）分配空间，例如数组对象，`object`对象；他是运行时动态分配内存的，因此存取速度较慢。栈（`stack`）中主要存放一些基本类型的变量和对象的引用，其优势是存取速度比堆要快，并且栈内的数据可以共享，但缺点是存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。
