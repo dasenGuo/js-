@@ -501,9 +501,9 @@ loadasync(test.js)
 
 通过检测`document.compatMode`属性，如果其值为`CSS1Compat`则为标准模式；如果其值为`BackCompat`则是怪异模式。
 
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E6%A0%87%E5%87%86%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/standardbox.png)
 
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E6%80%AA%E5%BC%82%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/strangebox.png)
 
 ##### 同源策略
 
@@ -605,11 +605,11 @@ document.body  //返回DOM中的body节点，即<body>
 document.documentElement  //返回DOM中的html节点，即<html>
 ```
 DOM以树结构表达HTML文档，如下图：
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308093956.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/DocumentTree.png)
 
 关于节点树，如下图：
 
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308094007.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/NodeTree.png)
 
 ##### 获取节点
 ```javascript
@@ -626,7 +626,7 @@ var eg5 = document.querySelector(".box") //通过类名拿到节点
 
 DOM节点之间的关系：
 
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190308094016.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/NodeRelationship.png)
 
 ##### 操作节点方法
 
@@ -914,7 +914,7 @@ ipt.addEventListener("textInput",function(event){
 
 浏览器执行`javascript`脚本时，会检查这个脚本属于哪个页面，如果不是同源页面，就不会被执行。你可以理解为两个域名之间不能跨过域名来发送请求或者请求数据，否则就是不安全的，这种不安全也就是CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。
 
-![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/clip.png)
+![](https://github.com/Michelle111111/makedown-images/blob/master/img/js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%9A%84png/CrossDanger.png)
 
 ##### 同源策略限制以下几种行为：
 
