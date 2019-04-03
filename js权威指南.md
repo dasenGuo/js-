@@ -904,7 +904,7 @@ ipt.addEventListener("textInput",function(event){
 跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对 `JavaScript`施加的安全限制。
 
 所谓同源是指：域名，协议，端口均相同
-* http://www.123.com/index.html 调用 http://www.123.com/server.php（非跨域）
+* <span>http://www.123.com/index.html 调用 http://www.123.com/server.php（非跨域）</span>
 * http://www.123.com/index.html 调用 http://www.456.com/server.php（主域名不同：123/456，跨域）
 * http://abc.123.com/index.html 调用 http://def.123.com/server.php（子域名不同：abc/def，跨域）
 * http://www.123.com:8080/index.html 调用 http://www.123.com:8081/server.php （端口不同：8080/8081，跨域）
