@@ -301,7 +301,7 @@ c === F  //true
 * 类数组对象不能直接调用数组API；
 * 数组遍历可以用for in和for循环，类数组只能用for循环遍历；
 ```javascript
-var a = {"0"："a","1":"b","2":"c",length:3}
+var a = {"0":"a","1":"b","2":"c",length:3}
 ```
 
 ##### 高阶函数
