@@ -434,6 +434,7 @@ window.defaultStatus  //窗户状态栏信息
 window.location URL  //设置该属性可打开新的页面
 
 //对象方法
+window.onresize()  //会在窗口或框架被调整大小时发生,多用于echarts条形柱状图高度调整
 window.alert("text")  //提示信息会话框
 window.confirm("text")  //确认会话框
 window.prompt("text")  //键盘输入会话框
